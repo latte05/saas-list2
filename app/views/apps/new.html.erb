@@ -1,29 +1,3 @@
-<h1>create an app</h1>
+<h1>Add new Application</h1>
 
-  <% if @app.errors.any? %>
-  <ul>
-   <% @app.errors.full_messages.each do |msg| %>
-   <li><%= msg %> </li>
-   <% end %>
-  </ul>
-
-  <% end %>
-  
-
-<%= form_for @app do |f| %>
-  <p>
-      <%= f.label :app_name %><br>
-      <%= f.text_field :app_name %>
-
-  </p>
-
-  <p>
-      <%= f.label :remarks %><br>
-      <%= f.text_area :remarks %>
-  </p>
-
-<p>
-  <%= f.submit %>
-</p>
-
-<% end %>
+<%= render 'form' %>

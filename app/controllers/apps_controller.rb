@@ -1,16 +1,17 @@
 class AppsController < ApplicationController
 
+  before_action :set_app, only:[:edit, :update, :show, :destroy]
+
+
   def index
     @apps = App.all
   end
-
 
   def new
     @app = App.new
   end
 
   def edit
-   @app = App.find(params[:id])
   end
 
   def create
@@ -25,7 +26,6 @@ class AppsController < ApplicationController
  end
 
  def update
-   @app = App.find(params[:id])
    if @app.update(app_params)
       flash[:notice] = "Application was successfully updated"
       redirect_to app_path(@app)
@@ -35,15 +35,23 @@ class AppsController < ApplicationController
 
  end
 
-
  def show
-   @app = App.find(params[:id])
+ end
+
+ def destroy
+    @app.destroy
+    flash[:notice] = "Application was successfully deleted"
+    redirect_to apps_path
  end
 
 
   private
-  def app_params
-      params.require(:app).permit(:app_name, :remarks)
-  end
+    def set_app
+      @app = App.find(params[:id])
+    end
+
+    def app_params
+        params.require(:app).permit(:app_name, :remarks)
+    end
 
 end
