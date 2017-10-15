@@ -7,23 +7,37 @@
 
 <% end %>
 
+<div class='row'>
+  <div class='col-xs-12'>
+    <%= form_for(@app,:html => {class: "form-horizontal", role: "form"}) do |f| %>
+      <div class="form-group">
+        <div class="control-label col-sm-2">
+              <%= f.label :app_name %>
+        </div>
+        <div class="col-sm-8">
+              <%= f.text_field :app_name, class: "form-control", placeholder: "App name", autofocus: true %>
+        </div>
+      </div>
 
-<%= form_for @app do |f| %>
-<p>
-    <%= f.label :app_name %><br>
-    <%= f.text_field :app_name %>
+      <div class="form-group">
+        <div class="control-label col-sm-2">
+              <%= f.label :remarks %>
+         </div>
+         <div class="col-sm-8">
+              <%= f.text_area :remarks, rows: 10, class: "form-control", placeholder: "Remarks", autofocus: true %>
+         </div>
+      </div>
 
-</p>
+          <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <%= f.submit class: 'btn btn-primary btn-lg'%>
+              </div>
+          </div>
+          <% end %>
 
-<p>
-    <%= f.label :remarks %><br>
-    <%= f.text_area :remarks %>
-</p>
+        <div class="col-xs-4 col-xs-offset-4">
+         [ <%= link_to "Back to application listing", apps_path %> ]
+       </div>
 
-<p>
-<%= f.submit %>
-</p>
-
-<%= link_to "Back to application listing", apps_path %>
-
-<% end %>
+     </div>
+   </div>

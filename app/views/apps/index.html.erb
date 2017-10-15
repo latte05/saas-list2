@@ -4,31 +4,32 @@
 <%= link_to "Add new Application", new_app_path %>
 </p>
 
-
-<table>
-  <tr>
+<table class="table">
+ <thead>
+   <tr>
     <th>Application</th>
     <th>Latency</th>
     <th>Jitter</th>
     <th>Packet_drop</th>
     <th>Bandwidth</th>
     <th>Remarks</th>
-  </tr>
+   </tr>
+ </thead>
 
-    <% @apps.each do |app| %>
-      <tr>
+<% @apps.each do |app| %>
+<tbody>
+   <tr>
         <td><%= app.app_name %></td>
         <td><%= app.req_latency %></td>
         <td><%= app.req_jitter %></td>
         <td><%= app.req_packet_drop %></td>
         <td><%= app.req_bw %></td>
         <td><%= app.remarks %></td>
-        <td><%= link_to 'Edit', edit_app_path(app) %></td>
+        <td><%= link_to "Edit" , edit_app_path(app) %></td>
         <td><%= link_to 'Show', app_path(app) %></td>
         <td><%= link_to 'Delete', app_path(app), method: :delete, data: {confirm: "Are you sure?"} %></td>
-      </tr>
-      <% end %>
-
-
+   </tr>
+ </tbody>
+ <% end %>
 
 </table>
