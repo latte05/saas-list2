@@ -1,0 +1,23 @@
+<h1>showing selected app </h1>
+
+
+<p>App Name: <%= @app.app_name %>
+</p>
+
+<p>Latency: <%= @app.req_latency %>
+</p>
+
+<p>Jitter: <%= @app.req_jitter %>
+</p>
+
+<p>Packet Drop: <%= @app.req_packet_drop %> %
+</p>
+
+<p>Bandwidth: <%= @app.req_bw %>
+</p>
+
+<p>Remarks <%= @app.remarks %>
+</p>
+
+<%= link_to "Edit this Application", edit_app_path(@app) %>
+<%= link_to "Back to application listing", apps_path %>

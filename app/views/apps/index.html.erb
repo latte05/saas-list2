@@ -1,0 +1,34 @@
+<h1>listing all apps</h1>
+
+<p>
+<%= link_to "Add new Application", new_app_path %>
+</p>
+
+
+<table>
+  <tr>
+    <th>App</th>
+    <th>req_latency</th>
+    <th>req_jitter</th>
+    <th>req_packet_drop</th>
+    <th>req_bw</th>
+    <th>Remarks</th>
+  </tr>
+
+    <% @apps.each do |app| %>
+      <tr>
+        <td><%= app.app_name %></td>
+        <td><%= app.req_latency %></td>
+        <td><%= app.req_jitter %></td>
+        <td><%= app.req_packet_drop %></td>
+        <td><%= app.req_bw %></td>
+        <td><%= app.remarks %></td>
+        <td><%= link_to 'Edit', edit_app_path(app) %></td>
+        <td><%= link_to 'Show', app_path(app) %></td>
+      </tr>
+      <% end %>
+
+      <%= link_to "Back to application listing", apps_path %>
+
+
+</table>
