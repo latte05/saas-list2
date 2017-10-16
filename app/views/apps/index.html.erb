@@ -31,5 +31,10 @@
    </tr>
  </tbody>
  <% end %>
-
 </table>
+
+<h2>Import App File</h2>
+<%= form_tag({controller: "apps", action: "import", method: "post"}, {multipart: true}) do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "import file" %>
+<% end %>

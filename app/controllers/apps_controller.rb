@@ -14,6 +14,12 @@ class AppsController < ApplicationController
   def edit
   end
 
+  def import
+    App.import(params[:file])
+    flash[:notice] = "Application File is imported."
+    redirect_to app_path
+  end
+
   def create
     #render plain: params[:app].inspect
     @app = App.new(app_params)
