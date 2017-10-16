@@ -4,7 +4,14 @@ class AppsController < ApplicationController
 
 
   def index
-    @apps = App.all
+    #@apps = App.all
+    #if it is searched
+    @apps = if params[:term]
+          @apps = App.search(params[:term])
+    else
+          @apps = App.all
+    end
+
   end
 
   def new
@@ -42,6 +49,7 @@ class AppsController < ApplicationController
  end
 
  def show
+
  end
 
  def destroy
@@ -57,7 +65,7 @@ class AppsController < ApplicationController
     end
 
     def app_params
-        params.require(:app).permit(:app_name, :remarks)
+        params.require(:app).permit(:app_name, :remarks, :term)
     end
 
 end

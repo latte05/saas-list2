@@ -18,4 +18,12 @@ validates  :app_name, uniqueness: true
     ["app_name","req_latency","req_jitter","eq_packet_drop","req_bw","remarks"]
   end
 
+  def self.search(term)
+    if term
+      where(['app_name LIKE ?', "%#{term}%"])
+    else
+      all
+    end
+  end
+
 end

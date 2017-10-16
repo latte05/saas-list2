@@ -1,5 +1,14 @@
 <h1>listing all apps</h1>
 
+<% provide(:title, 'All Applications') %>
+
+<p>Application Search</p>
+<%= form_tag(apps_path, method: :get) do %>
+  <%= text_field_tag :term %>
+  <%= submit_tag 'Search', :name => nil %>
+<% end %>
+
+
 <p>
 <%= link_to "Add new Application", new_app_path %>
 </p>
@@ -20,10 +29,10 @@
 <tbody>
    <tr>
         <td><%= app.app_name %></td>
-        <td><%= app.req_latency %></td>
-        <td><%= app.req_jitter %></td>
-        <td><%= app.req_packet_drop %></td>
-        <td><%= app.req_bw %></td>
+        <td><%= app.req_latency %> ms</td>
+        <td><%= app.req_jitter %> ms </td>
+        <td><%= app.req_packet_drop %> %</td>
+        <td><%= app.req_bw %> Kbps</td>
         <td><%= app.remarks %></td>
         <td><%= link_to "Edit" , edit_app_path(app) %></td>
         <td><%= link_to 'Show', app_path(app) %></td>
@@ -32,6 +41,7 @@
  </tbody>
  <% end %>
 </table>
+
 
 <h2>Import App File</h2>
 <%= form_tag({controller: "apps", action: "import", method: "post"}, {multipart: true}) do %>
