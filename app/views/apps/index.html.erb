@@ -1,19 +1,16 @@
-<h1>listing all apps</h1>
+<div class="add_new_btn">
+<%= button_to "Add New", new_app_path, :id => "add-app-btn",
+      :class => "btn btn-info", :method => :get %>
+</div>
+
+
+
+<h1 align="center">Application List</h1>
 
 <% provide(:title, 'All Applications') %>
 
-<p>Application Search</p>
-<%= form_tag(apps_path, method: :get) do %>
-  <%= text_field_tag :term %>
-  <%= submit_tag 'Search', :name => nil %>
-<% end %>
 
-
-<p>
-<%= link_to "Add new Application", new_app_path %>
-</p>
-
-<table class="table">
+<table class="table table-hover table-striped">
  <thead>
    <tr>
     <th>Application</th>
@@ -25,8 +22,8 @@
    </tr>
  </thead>
 
-<% @apps.each do |app| %>
 <tbody>
+<% @apps.each do |app| %>
    <tr>
         <td><%= app.app_name %></td>
         <td><%= app.req_latency %> ms</td>
@@ -38,8 +35,8 @@
         <td><%= link_to 'Show', app_path(app) %></td>
         <td><%= link_to 'Delete', app_path(app), method: :delete, data: {confirm: "Are you sure?"} %></td>
    </tr>
- </tbody>
  <% end %>
+  </tbody>
 </table>
 
 

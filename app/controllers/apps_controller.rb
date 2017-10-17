@@ -4,7 +4,7 @@ class AppsController < ApplicationController
 
 
   def index
-    #@apps = App.all
+    @apps = App.all
     #if it is searched
     @apps = if params[:term]
           @apps = App.search(params[:term])
