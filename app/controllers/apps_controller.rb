@@ -23,15 +23,16 @@ class AppsController < ApplicationController
 
   def import
     App.import(params[:file])
-    flash[:notice] = "Application File is imported."
+    flash[:success] = "Application File is imported."
     redirect_to app_path
   end
 
   def create
     #render plain: params[:app].inspect
     @app = App.new(app_params)
+    @app.user = User.first
     if @app.save
-      flash[:notice] = "App was successfully added"
+      flash[:success] = "App was successfully added"
       redirect_to app_path(@app)
     else
       render 'new'
@@ -40,7 +41,7 @@ class AppsController < ApplicationController
 
  def update
    if @app.update(app_params)
-      flash[:notice] = "Application was successfully updated"
+      flash[:success] = "Application was successfully updated"
       redirect_to app_path(@app)
   else
      render 'edit'
@@ -54,7 +55,7 @@ class AppsController < ApplicationController
 
  def destroy
     @app.destroy
-    flash[:notice] = "Application was successfully deleted"
+    flash[:danger] = "Application was successfully deleted"
     redirect_to apps_path
  end
 
@@ -65,7 +66,7 @@ class AppsController < ApplicationController
     end
 
     def app_params
-        params.require(:app).permit(:app_name, :remarks, :term)
+        params.require(:app).permit(:app_name, :remarks, :term, :req_latency, :req_jitter, :req_packet_drop, :req_bw)
     end
 
 end

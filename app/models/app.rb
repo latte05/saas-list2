@@ -1,6 +1,11 @@
 class App < ActiveRecord::Base
-validates  :app_name, uniqueness: true
-#  validate  :app_id, presence: true
+
+
+ belongs_to :user
+ validates  :app_name, uniqueness: true
+ validates  :user_id, presence: true
+
+ #  validate  :app_id, presence: true
 
   def self.import(file)
 
