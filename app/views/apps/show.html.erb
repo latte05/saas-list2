@@ -1,62 +1,67 @@
-<div class="container">
 
-  <div class="row">
-    <h2 align="center">
-        <span style='color: #222'>Application Details</span>
-    </h2>
-    <p></p>
-  <h3 class="center"><strong><span style='color: #444'><%= @app.app_name %></span></strong></h3>
-  <hr>
-  <p><br></p>
-
+<div class='img-container'>
+  <div class="container">
     <div class="row">
-      <div class="col-xs-3">
-        <h3 style="text-align: center">
-          <span style='color: #444'>Latency(ms)</span>
-          <p><br></p>
-        </h3>
-
-        <h4 style="text-align: center">
-            <span style='color: #444'><%= @app.req_latency %></span>
-        </h4>
-      </div>
-
-      <div class="col-xs-3">
-        <h3 style="text-align: center">
-          <span style='color: #444'>Jitter(ms)</span>
-          <p><br></p>
-        </h3>
-
-        <h4 style="text-align: center">
-            <span style='color: #444'><%= @app.req_jitter %></span>
-        </h4>
-      </div>
-
-      <div class="col-xs-3">
-        <h3 style="text-align: center">
-          <span style='color: #444'>Packet Drop(%)</span>
-          <p><br></p>
-        </h3>
-
-        <h4 style="text-align: center">
-            <span style='color: #444'><%= @app.req_packet_drop %></span>
-        </h4>
-      </div>
-
-      <div class="col-xs-3">
-        <h3 style="text-align: center">
-          <span style='color: #444'>Bandwidth</span>
-          <p><br></p>
-        </h3>
-
-        <h4 style="text-align: center">
-            <span style='color: #444'><%= @app.req_bw %></span>
-        </h4>
-      </div>
+      <p></p>
+      <h3 class="center"><span style ='color: #444'>Application Details</span>
+      </h2>
+      <p></p>
+      <h2 class="center"><strong><span style='color: #444'><%= @app.app_name %></span></strong></h2>
+      <hr>
 
     </div>
 
+    <div class="row">
+      <h2 align="center">
+          <span style='color: #444'>Network Recommendation Parameter</span>
+      </h2>
+      <p></p>
 
+      <div class="col-xs-3">
+        <h3 style="text-align: center">
+          <span class="label label-default">Latency(ms)</span>
+          <p><br></p>
+        </h3>
+
+        <h3 style="text-align: center">
+            <span class="label label-default"><%= @app.req_latency %> ms</span>
+        </h3>
+      </div>
+
+      <div class="col-xs-3">
+        <h3 style="text-align: center">
+            <span class="label label-default">Jitter (ms)</span>
+          <p><br></p>
+        </h3>
+
+        <h3 style="text-align: center">
+              <span class="label label-default"><%= @app.req_jitter %> ms</span>
+        </h3>
+      </div>
+
+      <div class="col-xs-3">
+        <h3 style="text-align: center">
+            <span class="label label-default">Packet Drop(%)</span>
+          <p><br></p>
+        </h3>
+
+        <h3 style="text-align: center">
+            <span class="label label-default"><%= @app.req_packet_drop %> % </span>
+        </h3>
+      </div>
+
+      <div class="col-xs-3">
+        <h3 style="text-align: center">
+            <span class="label label-default">Bandwidth</span>
+          <p><br></p>
+        </h3>
+
+        <h3 style="text-align: center">
+              <span class="label label-default"><%= @app.req_bw %> Kbps </span>
+        </h3>
+      </div>
+
+    </div>
 <!---
 <dl class="row">
    <h4 align="center">Network Requirements</h4>
@@ -72,22 +77,20 @@
 </dl>
 --->
 
- <hr>
- <p></p>
-<h3 class="center"><strong><span style='color: #444'>Remarks</span></strong></h3>
-<p><br></p>
+   <hr>
+   <p></p>
+  <h2 class="center"><span style='color: #444'>Remarks</span></h2>
+    <div class="well"><%= simple_format(@app.remarks) %></div>
 
-  <div class="well"><%= simple_format(@app.remarks) %></div>
+   <hr>
+    <div class="article-actions">
+    <%= link_to "Edit this app", edit_app_path(@app), class: "btn btn-xs btn-primary" %>
+    <%= link_to "Delete this app", app_path(@app), method: :delete,
+                                          data: {confirm: "it will be permanently deleted"},
+                                          class: "btn btn-xs btn-danger" %>
 
- <hr>
-  <div class="article-actions">
-  <%= link_to "Edit this app", edit_app_path(@app), class: "btn btn-xs btn-primary" %>
-  <%= link_to "Delete this app", app_path(@app), method: :delete,
-                                        data: {confirm: "it will be permanently deleted"},
-                                        class: "btn btn-xs btn-danger" %>
-
-  <%= link_to "Back to App Listing", apps_path, class: "btn btn-xs btn-success" %>
+    <%= link_to "Back to App Listing", apps_path, class: "btn btn-xs btn-success" %>
+    </div>
   </div>
-</div>
-
+  </div>
 </div>

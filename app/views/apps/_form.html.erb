@@ -1,6 +1,8 @@
 <%= render 'shared/errors', obj: @app %>
 
+
 <div class='row'>
+  <div class='container'>
   <div class='col-xs-12'>
     <%= form_for(@app,:html => {class: "form-horizontal", role: "form"}) do |f| %>
       <div class="form-group">
@@ -26,7 +28,7 @@
               <%= f.label :req_latency, 'Latency (ms)' %>
          </div>
          <div class="col-sm-8">
-              <%= f.number_field :req_latency, rows: 10, class: "form-control", placeholder: "ms", autofocus: true %>
+              <%= f.text_field :req_latency, rows: 10, class: "form-control", placeholder: "ms", autofocus: true %>
          </div>
       </div>
 
@@ -35,7 +37,7 @@
               <%= f.label :req_jitter, "Jitter (ms)" %>
          </div>
          <div class="col-sm-8">
-              <%= f.number_field :req_jitter, rows: 10, class: "form-control", placeholder: "ms", autofocus: true %>
+              <%= f.text_field :req_jitter, rows: 10, class: "form-control", placeholder: "ms", autofocus: true %>
          </div>
       </div>
 
@@ -44,7 +46,7 @@
               <%= f.label :req_packet_drop, "Packet Drop (%)" %>
          </div>
          <div class="col-sm-8">
-              <%= f.number_field :req_packet_drop, rows: 10, class: "form-control", placeholder: "%", autofocus: true %>
+              <%= f.text_field :req_packet_drop, rows: 10, class: "form-control", placeholder: "%", autofocus: true %>
          </div>
       </div>
 
@@ -53,11 +55,9 @@
               <%= f.label :req_bw,"Bandwidth" %>
          </div>
          <div class="col-sm-8">
-              <%= f.number_field :req_bw, rows: 10, class: "form-control", placeholder: "bandwidth", autofocus: true %>
+              <%= f.text_field :req_bw, rows: 10, class: "form-control", placeholder: "bandwidth", autofocus: true %>
          </div>
       </div>
-
-
 
 
           <div class="form-group">
@@ -73,3 +73,4 @@
 
      </div>
    </div>
+ </div>

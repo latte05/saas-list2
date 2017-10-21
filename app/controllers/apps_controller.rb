@@ -24,7 +24,7 @@ class AppsController < ApplicationController
   def import
     App.import(params[:file])
     flash[:success] = "Application File is imported."
-    redirect_to app_path
+    redirect_to apps_path
   end
 
   def create
@@ -66,7 +66,7 @@ class AppsController < ApplicationController
     end
 
     def app_params
-        params.require(:app).permit(:app_name, :remarks, :term, :req_latency, :req_jitter, :req_packet_drop, :req_bw)
+        params.require(:app).permit(:app_name, :remarks, :term, :req_latency, :req_jitter, :req_packet_drop, :req_bw, :user_id)
     end
 
 end
