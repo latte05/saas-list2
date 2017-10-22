@@ -29,7 +29,9 @@ class AppsController < ApplicationController
 
   def create
     #render plain: params[:app].inspect
+    #debugger
     @app = App.new(app_params)
+
     @app.user = User.first
     if @app.save
       flash[:success] = "App was successfully added"

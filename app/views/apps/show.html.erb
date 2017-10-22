@@ -7,9 +7,16 @@
       </h2>
       <p></p>
       <h2 class="center"><strong><span style='color: #444'><%= @app.app_name %></span></strong></h2>
-      <hr>
+
+      <div class="app-meta-details">
+        <small>Created by: <%= @app.user.username if @app.user%> </small>,
+                <%= time_ago_in_words(@app.created_at) %> ago,
+                last updated: <%= time_ago_in_words(@app.updated_at) %> ago </small>
+      </div>
+     <hr>
 
     </div>
+
 
     <div class="row">
       <h2 align="center">

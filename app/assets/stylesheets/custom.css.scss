@@ -32,7 +32,7 @@ $navbar-default-bg: black;
 
 .jumbotron h1{
     color: #FFCC00;
-    text-alight: center;
+    text-align: center;
     font-weight: bold;
     margin-bottom: 15rem;
     margin-top: 1rem;
@@ -56,6 +56,12 @@ $navbar-default-bg: black;
   -webkit-border-radius: 1.5rem;
   -moz-border-radius: 1.5rem;
   border-radius: 1.5rem;
+}
+
+.app-meta-details {
+  text-align: right;
+  boarder-top: 0.1rem solid #eaeaea;
+  margin-top: 0.1rem;
 }
 
 .app-actions {
