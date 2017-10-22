@@ -26,7 +26,7 @@
       <% @apps.each do |app| %>
          <tr>
               <td><%= app.app_name %></td>
-              <td><%= app.req_latency %> <% if @app.req.ms</td>
+              <td><%= app.req_latency %> ms</td>
               <td><%= app.req_jitter %> ms </td>
               <td><%= app.req_packet_drop %> %</td>
               <td><%= app.req_bw %> Kbps</td>

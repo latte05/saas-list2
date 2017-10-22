@@ -9,7 +9,7 @@ $navbar-default-bg: black;
   font-size: 1.7em;
   color: #fff;
   text-transform: uppercase;
-  letter-spacing: -1px;
+  letter-spacing: -0.1rem;
   font-weight: bold;
 }
 
@@ -53,14 +53,14 @@ $navbar-default-bg: black;
 }
 
 .btn.pill{
-  -webkit-border-radius: 16px;
-  -moz-border-radius: 16px;
-  border-radius: 16px;
+  -webkit-border-radius: 1.5rem;
+  -moz-border-radius: 1.5rem;
+  border-radius: 1.5rem;
 }
 
 .app-actions {
-  boarder-top: 1px solid #eaeaea;
-  padding-top: 5px;
+  boarder-top: 0rem solid #eaeaea;
+  padding-top: 1rem;
 }
 
 footer {
@@ -87,5 +87,5 @@ footer ul {
 
 footer ul li {
   float: left;
-  margin-left: 15px
+  margin-left: 1rem;
 }
