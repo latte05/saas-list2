@@ -1,43 +1,9 @@
 
 <div class='row'>
   <div class='container'>
-      <div class="add_new_button">
-      <%= button_to "Add New", new_app_path, :id => "add-app-btn",
+  <div class="pill">
+  <%= button_to "Add New", new_app_path, :id => "add-app-btn",
         :class => "btn btn-info", :method => :get %>
-<<<<<<< HEAD
-      </div>
-      <h1 align="center">Application List</h1>
-      <% provide(:title, 'All Applications') %>
-      <table class="table table-hover table-striped">
-         <thead>
-           <tr>
-            <th>Application</th>
-            <th>Latency</th>
-            <th>Jitter</th>
-            <th>Packet Drop</th>
-            <th>Bandwidth</th>
-            <th>Remarks</th>
-           </tr>
-         </thead>
-         <tbody>
-         <% @apps.each do |app| %>
-             <tr>
-                  <td><%= app.app_name %></td>
-                  <td><%= app.req_latency %> ms</td>
-                  <td><%= app.req_jitter %> ms </td>
-                  <td><%= app.req_packet_drop %> %</td>
-                  <td><%= app.req_bw %> Kbps</td>
-                  <td><%= app.remarks %></td>
-                  <td><%= link_to "Edit" , edit_app_path(app) %></td>
-                  <td><%= link_to 'Show', app_path(app) %></td>
-                  <td><%= link_to 'Delete', app_path(app), method: :delete, data: {confirm: "Are you sure?"} %></td>
-             </tr>
-         <% end %>
-          </tbody>
-         </table>
-     <h2>Import App File</h2>
-        <%= form_tag({controller: "apps", action: "import", method: "post"}, {multipart: true}) do %>
-=======
   </div>
 
   <h1 align="center">Application List</h1>
@@ -75,9 +41,9 @@
 
       <h2>Import App File</h2>
       <%= form_tag({controller: "apps", action: "import", method: "post"}, {multipart: true}) do %>
->>>>>>> 46cc4c3ae8cada27b2084922a88c542cb3cc8bf7
         <%= file_field_tag :file %>
         <%= submit_tag "import file" %>
-        <% end %>
-    </div>
+      <% end %>
+  </div>
+
 </div>
