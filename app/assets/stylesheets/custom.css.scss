@@ -9,7 +9,7 @@ $navbar-default-bg: black;
   font-size: 1.7em;
   color: #fff;
   text-transform: uppercase;
-  letter-spacing: -1px;
+  letter-spacing: -0.1rem;
   font-weight: bold;
 }
 
@@ -23,16 +23,16 @@ $navbar-default-bg: black;
 }
 
 .jumbotron {
-    background-image: asset-url('cloud-gate-chicago-1.jpg');
+    background-image: asset-url('cloud-gate-chicago-2.jpg');
     background-size: cover;
-    hight: 30rem;
+    background-position: center;
     padding-top: 30rem;
     margin-top: -10rem;
 }
 
 .jumbotron h1{
     color: #FFCC00;
-    text-alight: center;
+    text-align: center;
     font-weight: bold;
     margin-bottom: 15rem;
     margin-top: 1rem;
@@ -43,7 +43,7 @@ $navbar-default-bg: black;
   padding-top: 20rem;
   margin-bottom: 1rem;
   padding-bottom: 1rem;
-  background-image: asset_url('above-the-clouds-3.jpg');
+  background-image: asset_url('above-the-clouds-4.jpg');
   background-size: cover;
 }
 
@@ -52,9 +52,22 @@ $navbar-default-bg: black;
     background-color: black;
 }
 
+.btn.pill{
+  -webkit-border-radius: 1.5rem;
+  -moz-border-radius: 1.5rem;
+  border-radius: 1.5rem;
+}
+
+.app-meta-details {
+  text-align: right;
+  boarder-top: 0.1rem solid #eaeaea;
+  margin-top: 0.1rem;
+  margin-bottom: -2rem;
+}
+
 .app-actions {
-  boarder-top: 1px solid #eaeaea;
-  padding-top: 5px;
+  boarder-top: 0rem solid #eaeaea;
+  padding-top: 1rem;
 }
 
 footer {
@@ -81,5 +94,5 @@ footer ul {
 
 footer ul li {
   float: left;
-  margin-left: 15px
+  margin-left: 1rem;
 }
