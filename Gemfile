@@ -42,9 +42,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  gem 'sqlite3'
+  #gem 'sqlite3'
   # Use Puma as the app server
-
+  gem 'pg'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end
@@ -52,7 +52,7 @@ end
 group :production do
   gem 'pg'
   gem 'rails_12factor'
-
+  
 end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

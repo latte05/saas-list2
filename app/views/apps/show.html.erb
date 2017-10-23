@@ -3,14 +3,11 @@
   <div class="container">
     <div class="row">
       <p></p>
-      <h3 class="center"><span style ='color: #444'>Application Details</span>
-      </h2>
+      <h3 class="center"><span style ='color: #444'>Application Details</span></h3>
       <p></p>
-      <h2 class="center"><strong><span style='color: #444'><%= @app.app_name %></span></strong></h2>
+      <h3 class="center"><strong><span style='color: #444'><%= @app.app_name %></span></strong></h3>
       <hr>
-
     </div>
-
     <div class="row">
       <h2 align="center">
           <span style='color: #444'>Network Recommendation Parameter</span>
@@ -60,24 +57,8 @@
               <span class="label label-default"><%= @app.req_bw %> Kbps </span>
         </h3>
       </div>
-
     </div>
 
-
-<!---
-<dl class="row">
-   <h4 align="center">Network Requirements</h4>
-   <dt class="col-xs-4 text-right">Latency(ms):</td>
-   <dd class="col-xs-12 text-left"><%= @app.req_latency %> </dd>
-
-   <dt class="col-xs-4 text-right">Jitter(ms):</td>
-   <dd class="col-xs-12 text-left"><%= @app.req_jitter %> </dd>
-   <dt class="col-xs-4 text-right">Packet Drop(%):</td>
-   <dd class="col-xs-12 text-left"><%= @app.req_packet_drop %> </dd>
-   <dt class="col-xs-4 text-right">Bandwidth(kbps):</td>
-   <dd class="col-xs-12 text-left"><%= @app.req_bw %> </dd>
-</dl>
---->
 
    <hr>
    <p></p>
@@ -93,6 +74,5 @@
 
     <%= link_to "Back to App Listing", apps_path, class: "btn btn-xs btn-success" %>
     </div>
-  </div>
   </div>
 </div>

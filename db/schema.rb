@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20171017061027) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "apps", force: :cascade do |t|
     t.string   "app_name"
     t.integer  "req_latency"

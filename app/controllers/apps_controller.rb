@@ -2,7 +2,6 @@ class AppsController < ApplicationController
 
   before_action :set_app, only:[:edit, :update, :show, :destroy]
 
-
   def index
     @apps = App.all
     #if it is searched
