@@ -3,25 +3,31 @@
   <div class="container">
     <div class="row">
       <p></p>
-      <h3 class="center"><span style ='color: #444'>Application Details</span></h3>
-      <p></p>
-<<<<<<< HEAD
-      <h3 class="center"><strong><span style='color: #444'><%= @app.app_name %></span></strong></h3>
-      <hr>
-    </div>
-=======
-      <h2 class="center"><strong><span style='color: #444'><%= @app.app_name %></span></strong></h2>
-
-      <div class="app-meta-details">
-        <small>Created by: <%= @app.user.username if @app.user%> </small>,
-                <%= time_ago_in_words(@app.created_at) %> ago,
-                last updated: <%= time_ago_in_words(@app.updated_at) %> ago </small>
+      <div class="col-md-4 col-md-offset-4">
+            <h2 class="center"><span style ='color: #444'>Application Details</span> </h2>
+            <p></p>
+            <h2 class="center"><strong><span style='color: #444'><%= @app.app_name %></span></strong></h2>
       </div>
-     <hr>
+
+      <div class="col-md-4">
+      <ul class="app-meta-details">
+          <li>added by: </li>
+            <li><%= link_to gravatar_for(@app.user), user_path(@app.user) %></li>
+            <li class="app-title">
+            <%= link_to @app.user.username, user_path(@app.user) %>
+            </li>
+            <li>
+              Createed: <%= time_ago_in_words(@app.created_at) %> ago
+            </li>
+            <li>
+              Last Updated: <%= time_ago_in_words(@app.updated_at) %> ago </small>
+            </li>
+
+      </ul>
+      </div>
     </div>
+   <hr>
 
-
->>>>>>> user-association
     <div class="row">
       <h2 align="center">
           <span style='color: #444'>Network Recommendation Parameter</span>
