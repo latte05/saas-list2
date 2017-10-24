@@ -39,17 +39,17 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+  gem 'pg'
 
 group :development, :test do
-  gem 'sqlite3'
+  # gem 'sqlite3'
   # Use Puma as the app server
-  #gem 'pg'
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 
 end
