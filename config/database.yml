@@ -10,9 +10,9 @@
 #  timeout: 5000
 #create database myapp_development owner=ubuntu;
 #
-#development:
-#  <<: *default
-#  database: db/development.sqlite3
+development:
+  <<: *default
+  database: db/development.sqlite3
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -31,13 +31,13 @@ default: &default
   username: ubuntu
   password: password
 
-development:
-  <<: *default
-  database: app_list_dev
+#development:
+#  <<: *default
+#  database: app_list_dev
 
-test:
-  <<: *default
-  database: app_list_test
+#test:
+#  <<: *default
+#  database: app_list_test
 
 production:
   <<: *default
