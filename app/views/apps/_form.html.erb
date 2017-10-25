@@ -18,7 +18,7 @@
               <%= f.label :remarks, 'Remarks' %>
          </div>
          <div class="col-sm-8">
-              <%= f.text_area :remarks, rows: 10, class: "form-control", placeholder: "Remarks", autofocus: true %>
+              <%= f.text_area :remarks, rows: 5, class: "form-control", placeholder: "Remarks", autofocus: true %>
          </div>
       </div>
 
@@ -27,7 +27,7 @@
               <%= f.label :req_latency, 'Latency (ms)' %>
          </div>
          <div class="col-sm-8">
-              <%= f.text_field :req_latency, rows: 10, class: "form-control", placeholder: "ms", autofocus: true %>
+              <%= f.text_field :req_latency, class: "form-control", placeholder: "ms", autofocus: true %>
          </div>
       </div>
 
@@ -36,7 +36,7 @@
               <%= f.label :req_jitter, "Jitter (ms)" %>
          </div>
          <div class="col-sm-8">
-              <%= f.text_field :req_jitter, rows: 10, class: "form-control", placeholder: "ms", autofocus: true %>
+              <%= f.text_field :req_jitter, class: "form-control", placeholder: "ms", autofocus: true %>
          </div>
       </div>
 
@@ -45,7 +45,7 @@
               <%= f.label :req_packet_drop, "Packet Drop (%)" %>
          </div>
          <div class="col-sm-8">
-              <%= f.text_field :req_packet_drop, rows: 10, class: "form-control", placeholder: "%", autofocus: true %>
+              <%= f.text_field :req_packet_drop, class: "form-control", placeholder: "%", autofocus: true %>
          </div>
       </div>
 
@@ -54,21 +54,21 @@
               <%= f.label :req_bw,"Bandwidth" %>
          </div>
          <div class="col-sm-8">
-              <%= f.text_field :req_bw, rows: 10, class: "form-control", placeholder: "bandwidth", autofocus: true %>
+              <%= f.text_field :req_bw, class: "form-control", placeholder: "bandwidth", autofocus: true %>
          </div>
       </div>
 
-
-          <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-10">
-                <%= f.submit class: 'btn btn-primary btn-lg'%>
-              </div>
+        <div class="submit-btn">
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-2">
+                  <%= f.submit class: 'btn btn-info btn-square'%>
+                </div>
+            <% end %>
+            <div class="col-sm-2">
+            <%= link_to "Go Back", apps_path, class: "btn btn-warning btn-square" %>
           </div>
-          <% end %>
+      </div>
 
-        <div class="col-xs-4 col-xs-offset-4">
-         [ <%= link_to "Back to application listing", apps_path %> ]
-       </div>
 
      </div>
    </div>

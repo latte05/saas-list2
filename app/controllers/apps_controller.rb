@@ -1,6 +1,7 @@
 class AppsController < ApplicationController
-
   before_action :set_app, only:[:edit, :update, :show, :destroy]
+  before_action :require_user, except: [:index, :show]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index
     #if it is searched
@@ -36,7 +37,7 @@ class AppsController < ApplicationController
     #debugger
     @app = App.new(app_params)
 
-    @app.user = User.first
+    @app.user = current_user
     if @app.save
       flash[:success] = "App was successfully added"
       redirect_to app_path(@app)
@@ -73,6 +74,13 @@ class AppsController < ApplicationController
 
     def app_params
         params.require(:app).permit(:app_name, :remarks, :term, :req_latency, :req_jitter, :req_packet_drop, :req_bw, :user_id)
+    end
+
+    def require_same_user
+      if current_user != @app.user and !current_user.admin?
+        flash[:danger] = "You can only edit or delete your own app"
+        redirect_to root_path
+      end
     end
 
 end

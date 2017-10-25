@@ -35,9 +35,11 @@
                   <td><%= link_to user.username, user_path(user) %></td>
                   <td><%= link_to gravatar_for(user,:size=>'40'), user_path(user) %> </td>
                   <td><%= pluralize(user.apps.count, "app") if user.apps %> </td>
+                  <% if logged_in? && current_user == user.username %>
                   <td><%= link_to "Edit" , edit_user_path(user) %></td>
                   <td><%= link_to 'Show', user_path(user) %></td>
                   <td><%= link_to 'Delete', user_path(user), method: :delete, data: {confirm: "Are you sure?"} %></td>
+                  <% end %>
              </tr>
            <% end %>
             </tbody>

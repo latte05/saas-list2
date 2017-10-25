@@ -86,13 +86,15 @@
     <div class="well"><%= simple_format(@app.remarks) %></div>
 
    <hr>
+   <% if logged_in? && (current_user == @app.user) || !current_user.admin? %>
     <div class="article-actions">
-    <%= link_to "Edit this app", edit_app_path(@app), class: "btn btn-xs btn-primary" %>
+    <%= link_to "Edit this app", edit_app_path(@app), class: "btn btn-primary btn-square" %>
     <%= link_to "Delete this app", app_path(@app), method: :delete,
                                           data: {confirm: "it will be permanently deleted"},
-                                          class: "btn btn-xs btn-danger" %>
+                                          class: "btn btn-danger btn-square" %>
 
-    <%= link_to "Back to App Listing", apps_path, class: "btn btn-xs btn-success" %>
+    <% end %>
+    <%= link_to "View All app", apps_path, class: "btn btn-success btn-square" %>
     </div>
   </div>
 </div>

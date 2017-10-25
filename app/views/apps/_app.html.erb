@@ -29,6 +29,9 @@
         <th>Packet Drop</th>
         <th>Bandwidth</th>
         <th>Remarks</th>
+        <th>View</th>
+        <th>Edit</th>
+        <th>Delete</th>
        </tr>
      </thead>
 
@@ -41,19 +44,27 @@
               <td><%= app.req_packet_drop %> %</td>
               <td><%= app.req_bw %> Kbps</td>
               <td><%= app.remarks %></td>
+              <% if logged_in? && (current_user == app.user) || current_user.admin? %>
+              <td><%= link_to 'View', app_path(app) %></td>
               <td><%= link_to "Edit" , edit_app_path(app) %></td>
-              <td><%= link_to 'Show', app_path(app) %></td>
+              <% end %>
+
+              <% if logged_in? && current_user.admin? %>
               <td><%= link_to 'Delete', app_path(app), method: :delete, data: {confirm: "Are you sure?"} %></td>
+              <% end %>
          </tr>
        <% end %>
         </tbody>
       </table>
 
-      <h2>Import App File</h2>
-      <%= form_tag({controller: "apps", action: "import", method: "post"}, {multipart: true}) do %>
-        <%= file_field_tag :file %>
-        <%= submit_tag "import file" %>
+      <% if current_user.admin? %>
+        <h2>Import App File</h2>
+        <%= form_tag({controller: "apps", action: "import", method: "post"}, {multipart: true}) do %>
+          <%= file_field_tag :file %>
+          <%= submit_tag "import file" %>
+        <% end %>
       <% end %>
+
   </div>
 
 </div>
