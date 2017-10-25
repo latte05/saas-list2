@@ -3,12 +3,17 @@ class AppsController < ApplicationController
   before_action :set_app, only:[:edit, :update, :show, :destroy]
 
   def index
-    @apps = App.all
     #if it is searched
     @apps = if params[:term]
           @apps = App.search(params[:term])
     else
           @apps = App.all
+    end
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @apps.to_csv }
+      format.xls
     end
 
   end

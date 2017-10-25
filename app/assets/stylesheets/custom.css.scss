@@ -58,6 +58,13 @@ $navbar-default-bg: black;
   border-radius: 1.5rem;
 }
 
+/* round button style */
+.btn-round.btn-xs{border-radius:11px;}
+.btn-round.btn-sm{border-radius:22.5px;}
+.btn-round       {border-radius:17px;}
+.btn-round.btn-lg{border-radius:23px;}
+.btn-square{border-radius:0;}
+
 .app-meta-details {
   list-style: none;
   text-align: right;

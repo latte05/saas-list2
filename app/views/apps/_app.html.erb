@@ -1,12 +1,23 @@
 
 <div class='row'>
   <div class='container'>
-
-    <div class="pill">
-    <%= button_to "Add New", new_app_path, :id => "add-app-btn",
-          :class => "btn btn-info", :method => :get %>
+    <div class='top-btn-group'>
+      <div class='col-xs-3'>
+        <%= button_to "Add New", new_app_path, :id => "add-app-btn",
+            :class => "btn btn-info btn-round", :method => :get %>
+       </div>
+       <div class='col-xs-3 col-xs-offset-6'>
+       <%= button_to "Download CSV", apps_path(format: "csv"), :id => "add-app-btn",
+            :class => "btn btn-success btn-round", :method => :get %>
+        <!---<%= link_to "Excel(coming soon)", apps_path(format: "xls") %> --->
+       </div>
     </div>
+  </div>
 
+
+  </div>
+
+  <div class='container'>
   <% provide(:title, 'All Applications') %>
 
   <table class="table table-hover table-striped">

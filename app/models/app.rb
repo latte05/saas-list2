@@ -1,5 +1,6 @@
 class App < ActiveRecord::Base
 
+ require 'csv'
 
  belongs_to :user
  validates  :app_name, uniqueness: true
@@ -17,8 +18,22 @@ class App < ActiveRecord::Base
     end
   end
 
+  def self.to_csv(options = {})
+    desired_columns = [*exportable_attributes]
+    CSV.generate(options) do |csv|
+      csv << desired_columns
+      all.each do |a|
+        csv << a.attributes.values_at(*desired_columns)
+      end
+    end
+  end
+
   def self.updatable_attributes
-    ["app_name","req_latency","req_jitter","eq_packet_drop","req_bw","remarks","user_id"]
+    ["app_name","req_latency","req_jitter","req_packet_drop","req_bw","remarks","user_id"]
+  end
+
+  def self.exportable_attributes
+    ["app_name","req_latency","req_jitter","req_packet_drop","req_bw","remarks"]
   end
 
   def self.search(term)
