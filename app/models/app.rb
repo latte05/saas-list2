@@ -13,7 +13,7 @@ class App < ActiveRecord::Base
     row = Hash[[header, spreadsheet.row(i)].transpose]
     app = find_by(app_name: row["app_name"]) || new
     app.attributes = row.to_hash.slice(*updatable_attributes)
-    app.user_id = current_user
+    app.user_id = User.first.id
     app.save!
     end
   end
