@@ -27,7 +27,7 @@ class AppsController < ApplicationController
   end
 
   def import
-    App.import(params[:file])
+    App.import(params[:file], current_user)
     flash[:success] = "Application File is imported."
     redirect_to apps_path
   end
