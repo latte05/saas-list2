@@ -3,8 +3,11 @@ class App < ActiveRecord::Base
  require 'csv'
 
  belongs_to :user
+ #temporary allow optional nil
+ belongs_to :company, optional: true
  validates  :app_name, uniqueness: true
  validates  :user_id, presence: true
+#validates  :company, presence: true
 
   def self.import(file, current_user)
     spreadsheet = Roo::Spreadsheet.open(file.path)

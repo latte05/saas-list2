@@ -20,7 +20,7 @@
   <div class='container'>
   <% provide(:title, 'All Applications') %>
 
-  <table class="table table-hover table-striped">
+  <table class="table table-hover table-striped table-fixed">
      <thead>
        <tr>
         <th>Application</th>
@@ -39,10 +39,10 @@
       <% obj.each do |app| %>
          <tr>
               <td><%= app.app_name %></td>
-              <td><%= app.req_latency %> ms</td>
-              <td><%= app.req_jitter %> ms </td>
-              <td><%= app.req_packet_drop %> %</td>
-              <td><%= app.req_bw %> Kbps</td>
+              <td><%= app.req_latency %> <%= 'ms' if !app.req_latency.nil? %> </td>
+              <td><%= app.req_jitter %> <%= 'ms' if !app.req_jitter.nil? %>  </td>
+              <td><%= app.req_packet_drop %> <%= '%' if !app.req_packet_drop.nil? %> </td>
+              <td><%= app.req_bw %> <%= 'kbps' if !app.req_bw.nil? %> </td>
               <td><%= app.remarks %></td>
               <% if logged_in? && (current_user == app.user) || current_user.admin? %>
               <td><%= link_to 'View', app_path(app) %></td>
@@ -54,7 +54,7 @@
               <% end %>
          </tr>
        <% end %>
-       
+
         </tbody>
       </table>
 

@@ -10,6 +10,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :companies do
+    collection do
+      post :import
+    end
+  end
+  
   get 'signup', to: 'users#new'
   resources :users, except: [:new]
 

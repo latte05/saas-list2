@@ -1,0 +1,25 @@
+<h1 align="center">All Companies List</h1>
+  <div class="row">
+    <div class="container">
+        <table class="table table-hover table-striped table-fixed">
+           <thead>
+             <tr>
+              <th>Company ID</th>
+              <th>Company Name</th>
+             </tr>
+           </thead>
+
+            <tbody>
+             <% @companies.each do |c| %>
+               <tr>
+                    <td><%= c.id %></td>
+                    <td><%= link_to c.company_name, c.company_url %></td>
+                    <td><%= link_to "Edit" , edit_company_path(c) %></td>
+                    <td><%= link_to 'Show', company_path(c) %></td>
+                    <td><%= link_to 'Delete', company_path(c), method: :delete, data: {confirm: "Are you sure?"} %></td>
+               </tr>
+              <% end %>
+             </tbody>
+            </table>
+    </div>
+  </div>
